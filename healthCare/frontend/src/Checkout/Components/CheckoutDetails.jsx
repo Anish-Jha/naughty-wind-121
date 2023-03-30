@@ -47,7 +47,7 @@ const CheckoutDetails = () => {
     if (name && address && city) {
       return (
         <Button
-          colorScheme="red"
+          colorScheme="teal"
           mt={4}
           onClick={() => {
             if (!toast.isActive(id)) {
@@ -69,7 +69,7 @@ const CheckoutDetails = () => {
     } else {
       return (
         <Button
-          colorScheme="red"
+          colorScheme="teal"
           mt={4}
           onClick={() => {
             if (!toast.isActive(id)) {
@@ -96,7 +96,7 @@ const CheckoutDetails = () => {
     if (cardNumber && cvv && expiry) {
       return (
         <Button
-          colorScheme="red"
+          colorScheme="teal"
           mt={4}
           onClick={() => {
             if (!toast.isActive(id)) {
@@ -119,7 +119,7 @@ const CheckoutDetails = () => {
     } else {
       return (
         <Button
-          colorScheme="red"
+          colorScheme="teal"
           onClick={() => {
             if (!toast.isActive(id)) {
               toast({
@@ -145,7 +145,7 @@ const CheckoutDetails = () => {
     return (
       <Button
         mt={3}
-        colorScheme="red"
+        colorScheme="teal"
         onClick={() => {
           if (!toast.isActive(id)) {
             toast({
@@ -172,7 +172,7 @@ const CheckoutDetails = () => {
         <Accordion w={"full"} defaultIndex={[0]} allowToggle>
           <AccordionItem>
             <h2>
-              <AccordionButton _expanded={{ bg: "red.800", color: "white" }}>
+              <AccordionButton _expanded={{ bg: "Teal", color: "white" }}>
                 <Box as="span" flex="1" textAlign="left">
                   Your Details
                 </Box>
@@ -234,7 +234,7 @@ const CheckoutDetails = () => {
         <Accordion w={"full"} defaultIndex={[0]} allowToggle>
           <AccordionItem>
             <h2>
-              <AccordionButton _expanded={{ bg: "red.800", color: "white" }}>
+              <AccordionButton _expanded={{ bg: "Teal", color: "white" }}>
                 <Box as="span" flex="1" textAlign="left">
                   Payment
                 </Box>
