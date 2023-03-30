@@ -1,11 +1,37 @@
 const {ProductModel}=require("../model/products.model")
 const jwt=require('jsonwebtoken')
 const getAllProducts=async(req,res)=>{
+    const {category,sortByPrice}=req.query;
     try {
+        if(sortByPrice && category){
+            if(sortByPrice=="asc"){
+                const products=await ProductModel.find({category})
+                .sort({price1:1})
+                return res.status(200).send(products)
+            }else if(sortByPrice=="desc"){
+                const products = await ProductModel.find({ category }).sort({
+                  price1: -1,
+                });
+                return res.status(200).send(products);
+            }
+        }
+        if(category){
+            const products=await ProductModel.find({category})
+            return res.status(200).send(products)
+        }
       const products = await ProductModel.find();
       res.status(200).send(products);
     } catch (err) {
       res.status(500).send({ msg: err.message });
+    }
+}
+
+const getProductById=async(req,res)=>{
+    try {
+        const product=await ProductModel.findById({_id:req.params.productID})
+        res.status(200).send(product)
+    } catch (err) {
+        res.status(400).send({msg:err.message})
     }
 }
 
@@ -62,5 +88,6 @@ module.exports={
     addNewProduct,
     getAllProducts,
     updateProduct,
-    deleteProduct
+    deleteProduct,
+    getProductById
 }
