@@ -9,6 +9,7 @@ const auth=(req,res,next)=>{
 
       if (decoded) {
         req.body.userID = decoded.userID;
+        req._id=decoded.userID
         next();
       } else {
         res.status(400).send({ msg: "Please Login first" });
