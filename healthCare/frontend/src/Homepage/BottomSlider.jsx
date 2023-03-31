@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import SlideContent from "./SlideContent";
 import Dots from "./Dots";
 import Arrow from "./Arrow";
-import sliderImage from "./TopSlideImage";
+import sliderImage from "./BottomSlideImage";
 import './css/TopSlider.css';
-import SliderImages from "./TopSlideImage";
+import SliderImages from "./BottomSlideImage";
 import { Box } from "@chakra-ui/react";
 
 const len = sliderImage.length - 1;
 
-export default function TopSlider(props){
+export default function BottomSlider(props) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
@@ -20,9 +20,9 @@ export default function TopSlider(props){
   }, [activeIndex]);
 
   return (
-    <Box className="slider-container">
+    <Box className="slider-container" borderRadius={'20px'} width={'100%'} height={'270px'} objectFit={'cover'}>
       <SlideContent activeIndex={activeIndex} sliderImage={sliderImage} />
-      <Arrow
+      <Arrow 
         prevSlide={() =>
           setActiveIndex(activeIndex < 1 ? len : activeIndex - 1)
         }

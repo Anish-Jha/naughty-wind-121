@@ -21,11 +21,26 @@ const handleBestsellers=()=>{
   setCategories(false);
 }
 
+const responsive={
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 4
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 480 },
+    items: 3
+  },
+  mobile: {
+    breakpoint: { max: 480, min: 0 },
+    items: 1
+  }
+};
+
 
   return (
-    <Box  display={["none", "none", "inline"]}>
-      <Box>
-        <Box w="80%" p="17px 0px" m="auto" mb="0px" display="flex" justifyContent="space-between" cursor={'pointer'} alignItems="center">
+    <Box  display={["none", "none",'inline',"inline"]} responsive={responsive} position={'sticky'} zIndex={'9999'} top={'0'}>
+      <Box bgColor={'#FFFFFF'} zIndex={'9999'}>
+        <Box w={['0','0','100%',"80%"]} p="17px 0px" m="auto" mb="0px" display="flex" justifyContent="space-between" cursor={'pointer'} alignItems="center" bgColor={'#FFFFF'}>
           <Box onClick={()=>handleCategories()} cursor='pointer' p="7px 17px" border="1px solid #a6a6a6" rounded="5px" display="flex" justifyContent="space-between" alignItems="center" >
             <Icon color="#2eb8b8" boxSize="22px" as={HiMenuAlt1} />
             <Text color="#949292" fontWeight={600} m="0">Shop By Category</Text>
@@ -63,8 +78,9 @@ const handleBestsellers=()=>{
             </Link>
           </Box>
         </Box>
-        <Box display={categories? "inline" : "none"}>
-          <Box w="80%" m="auto" display="flex" justifyContent="space-between" lineHeight="30px" textAlign="left">
+
+        <Box display={categories? 'block' : "none"} zIndex={'9999'} position={'absolute'} marginLeft={'20%'}>
+          <Box width={'max'}  m="auto" zIndex={'9999'} display="flex" justifyContent="space-between" lineHeight="30px" bgColor={'white'} textAlign="left">
             <Box w="23%" bg="#e6f2ff" lineHeight="40px">
               <Box bgColor={'#ffffff'} p="10px">
                 <Link>Sports Nutrition</Link>
@@ -128,7 +144,7 @@ const handleBestsellers=()=>{
                   <Link href="" _hover={{color:"#b3ebeb"}}>Other Supports</Link><br/>
                   <Link href="" _hover={{color:"#b3ebeb"}}>Citrulline Malate</Link><br/>
                 </Box>
-                <Box w="19%">
+                <Box w="20%">
                   <Link href='' _hover={{color:"#b3ebeb"}} fontWeight="bold">Workout Essentials</Link><br/>
                   <Link href='' _hover={{color:"#b3ebeb"}}>Fat Burners</Link><br/>
                   <Link href='' _hover={{color:"#b3ebeb"}}>Consult Services</Link><br/>
@@ -143,8 +159,8 @@ const handleBestsellers=()=>{
         </Box>
 
 
-        <Box display={bestSellers? "inline" : "none"}>
-          <Box w="35%" marginLeft={'25%'} display="flex" justifyContent="space-between" lineHeight="26px" textAlign="left">
+        <Box display={bestSellers? "block" : "none"} zIndex={'9999'} position={'absolute'} marginLeft={'35%'}>
+          <Box w="450px" marginLeft={'25%'} bgColor={'white'} display="flex" justifyContent="space-between" lineHeight="26px" textAlign="left">
             <Box w="40%" bg="#e6f2ff" lineHeight="35px">
               <Box _hover={{color:"#b3ebeb", bg:"white"}}  p="10px">
                 <Link>Sports Nutrition</Link>

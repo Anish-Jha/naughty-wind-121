@@ -52,7 +52,7 @@ export default function Navbar() {
 
   return (
     <Box  bg="white" zIndex={0} w="100%" position="sticky" p="10px 0px" borderBottom={'2px solid lightgrey'} fontFamily='Montserrat,sans-serif'>
-    <Box display="flex" w={["100%", "95%", "85%"]} m="auto" justifyContent="space-between" alignItems="center">
+    <Box display="flex" w={['100%','100%','95%',"80%"]} m="auto" justifyContent="space-between" alignItems="center" paddingTop={'10px'}>
     <Box display="flex">
     <IconButton  aria-label="Open Menu"  bg="none" size="lg" p="0px" _hover={{bg:"none",cursor:"pointer"}} mr={1} color="black" icon={<HamburgerIcon w="1.5em" h="1.5em" />}  display={["flex","flex","none"]} onClick={()=> changeDisplay('flex')} />
       <Link href="/">
@@ -104,7 +104,7 @@ export default function Navbar() {
     </Box>
   </Box>
   <Box>
-      <Flex w="100%" h="100%" color="black" bg="white" zIndex={20} pos="fixed" top="0" left="0" overflowY="auto" flexDir="column" display={display} >
+      <Flex border={'1px solid red'} w="100%" h="100%" color="black" bg="white" zIndex={20} pos="sticky" top="0" left="0" overflowY="auto" flexDir="column" display={display} >
        <Box display={["flex", "flex", "none"]} justifyContent="space-between" alignItems="center" bg="#00cccc" p="25px 0px">
         <IconButton mt={2} mr={2} aria-label="Close Menu" size="lg" bg="none" color="white" icon={<CloseIcon/>} onClick={()=> changeDisplay('none')} />
         <Box w="90%" display="flex" justifyContent="center">
@@ -183,6 +183,7 @@ export default function Navbar() {
               <Icon color="#595959" boxSize="30px" as={ChevronRightIcon} />
             </Box>
         </Box>
+
         <Box display={categories? "inline" : "none"} color="#595959">
           <Box onClick={()=>setCategories(!categories)} p="5px 10px" borderBottom="1px solid grey" fontSize="26px" 
           display={["flex", "flex", "none"]} justifyContent="flex-start" alignItems="center" gap="10px">
