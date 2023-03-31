@@ -78,7 +78,7 @@ function Slider1() {
     <Box className="scroll-wrap">
       {items.map((item, index) => (
         <Box key={index} border='1px solid rgba(136, 133, 133, 0.781)' borderRadius={'10px'} className="item">
-          <img src={item.imageUrl} alt={item.title} />
+          <img src={item.imageUrl} alt={item.title}/>
           <p style={{fontSize:"13px"}}><span style={{backgroundColor:'#1eaaeb',width:'auto',color:'white',padding:"2px 5px 2px 5px", borderRadius:'3px',marginRight:"10px"}}>5.0 ★</span> 2 reviews</p>
           <Box position='absolute' top={'10px'} right={'10px'} fontSize='30px'>
           <SlHeart/>
