@@ -1,5 +1,6 @@
 const {ProductModel}=require("../model/products.model")
 const jwt=require('jsonwebtoken')
+require("dotenv").config();
 const getAllProducts=async(req,res)=>{
     const {category,sortByPrice}=req.query;
     try {
@@ -13,6 +14,19 @@ const getAllProducts=async(req,res)=>{
                   price1: -1,
                 });
                 return res.status(200).send(products);
+            }
+        }
+        if(sortByPrice){
+            if (sortByPrice == "asc") {
+              const products = await ProductModel.find().sort({
+                price1: 1,
+              });
+              return res.status(200).send(products);
+            } else if (sortByPrice == "desc") {
+              const products = await ProductModel.find().sort({
+                price1: -1,
+              });
+              return res.status(200).send(products);
             }
         }
         if(category){
@@ -48,7 +62,7 @@ const addNewProduct = async (req, res) => {
 const updateProduct=async(req,res)=>{
     const payload=req.body;
     const token=req.headers.authorization.split(" ")[1]
-    const decoded=jwt.verify(token,'healthcure')
+    const decoded = jwt.verify(token, `${process.env.secretKey}`);
     const productID=req.params.productID;
     const req_id=decoded.userID;
     const product=await ProductModel.findOne({_id:productID})
@@ -66,7 +80,7 @@ const updateProduct=async(req,res)=>{
 }
 const deleteProduct=async(req,res)=>{
     const token=req.headers.authorization.split(" ")[1]
-    const decoded=jwt.verify(token,'healthcure');
+    const decoded = jwt.verify(token, `${process.env.secretKey}`);
     const productID=req.params.productID;
     const req_id=decoded.userID;
     const product=await ProductModel.findOne({_id:productID})

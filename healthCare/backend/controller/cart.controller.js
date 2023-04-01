@@ -1,7 +1,7 @@
 const { CartModel } = require("../model/cart.model");
 const { ProductModel } = require("../model/products.model");
 const jwt=require('jsonwebtoken')
-
+require("dotenv").config();
 const getProductsOfCart=async(req,res)=>{
   try {
     const cart=await CartModel.find({userID:req._id})
@@ -18,7 +18,7 @@ const addToCart = async (req, res) => {
   const {reqQuantity,type}=req.body
   const { productID } = req.params;
   const token = req.headers.authorization.split(" ")[1];
-  const decoded = jwt.verify(token, "healthcure");
+  const decoded = jwt.verify(token, `${process.env.secretKey}`);
 
   try {
     const product = await ProductModel.findById({ _id: productID });
