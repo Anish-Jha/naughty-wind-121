@@ -32,7 +32,7 @@ export default function SingleProduct() {
   useEffect(() => {
     function returnfetch() {
       return fetch(
-        `http://localhost:3000/products/${id}`
+        `https://filthy-bee-dirndl.cyclic.app/products/${id}`
       ).then((res) => res.json());
     }
 

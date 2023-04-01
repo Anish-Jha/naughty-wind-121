@@ -9,7 +9,7 @@ const MainRoutes = () => {
     <div>
       <Routes>
         
-        <Route path='/products/proteins' element={<Proteins />}></Route>
+        <Route path='/products' element={<Proteins />}></Route>
         
         <Route path='/products/:id' element={<SingleProduct />}></Route>
         

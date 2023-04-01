@@ -63,13 +63,27 @@ const handlePageChange = (value) => {
 
 
 
-const getData= (params)=>{
-  return axios.get(`http://localhost:3000/products/proteins&page=${page}&limit=21`, params)
-      .then((r)=>{
-        setData(r.data)
-      })
-      .catch((e)=>console.log(e));
-  }
+// const getData= (params)=>{
+//   return axios.get(`https://filthy-bee-dirndl.cyclic.app/products?category=gainers&page=${page}&limit=21`, params)
+//       .then((r)=>{
+//         setData(r.data)
+//       })
+//       .catch((e)=>console.log(e));
+//   }
+
+const getData = () => {
+  fetch("https://filthy-bee-dirndl.cyclic.app/products", {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
+  })
+    .then((res) => res.json())
+    .then((res) => {
+      console.log(res);
+      setData(res);
+    })
+    .catch((err) => console.log(err));
+};
 
 
   return (
