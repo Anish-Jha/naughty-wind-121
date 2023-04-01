@@ -31,7 +31,7 @@ const deleteUser = async (req, res) => {
   }
 };
 const register = async (req, res) => {
-  const { name, email, pass, location, gender, role } = req.body;
+  const { name, email, pass, location, gender } = req.body;
 
   try {
     const user = await UserModel.findOne({ email });
@@ -50,7 +50,7 @@ const register = async (req, res) => {
         pass: hash,
         location,
         gender,
-        role,
+        // role,
       });
       await newUser.save();
       // if (user.role == "Admin") {

@@ -28,7 +28,7 @@
             name:"user's_name",
             email:"user's_email",
             pass:"user's_password",
-            locaton:"user's_location",
+            location:"user's_location",
             gender:"user's_gender",
             role:"User"
         }
