@@ -1,23 +1,28 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import styles from "../styles/Signup.module.css";
 
 const Signup = () => {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [location, setLocation] = useState("");
-  const [age, setAge] = useState(0);
+  const [gender, setGender] = useState("");
+  const [role, setRole] = useState("");
 
   const navigate = useNavigate();
 
   const handleSubmit = () => {
     const payload = {
+      name: name,
       email: email,
       password: password,
       location: location,
-      age: age,
+      gender: gender,
+      role: role,
     };
     // console.log(payload);
-    fetch(`/users/register`, {
+    fetch(`https://filthy-bee-dirndl.cyclic.app/users/register`, {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -30,42 +35,75 @@ const Signup = () => {
   };
 
   return (
-    <div className="signup_div">
-      <h3>Signup Page</h3>
-      <input
-        type="text"
-        name=""
-        id=""
-        placeholder="Enter email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
-        type="password"
-        name=""
-        id=""
-        placeholder="Enter Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <input
-        type="text"
-        name=""
-        id=""
-        placeholder="Enter Location"
-        value={location}
-        onChange={(e) => setLocation(e.target.value)}
-      />
-      <input
-        type="number"
-        name=""
-        id=""
-        placeholder="Enter Age"
-        value={age}
-        onChange={(e) => setAge(e.target.value)}
-      />
-      <button onClick={handleSubmit}>Submit</button>
-    </div>
+    <>
+      <div className={styles.signup_box}>
+        <div className={styles.signup_main_container}>
+          <h1 className={styles.reg}>Register</h1>
+          <div className={styles.signup_container}>
+            <div className={styles.input_space}>
+              <input
+                type="text"
+                name=""
+                id=""
+                placeholder="Enter name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </div>
+            <div className={styles.input_space}>
+              <input
+                type="text"
+                name=""
+                id=""
+                placeholder="Enter email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div className={styles.input_space}>
+              <input
+                type="password"
+                name=""
+                id=""
+                placeholder="Enter Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+            <div className={styles.input_space}>
+              <input
+                type="text"
+                name=""
+                id=""
+                placeholder="Enter Location"
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+              />
+            </div>
+            <div className={styles.input_space}>
+              <select name="gender" onChange={(e) => setGender(e.target.value)}>
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            </div>
+            <div className={styles.input_space}>
+              <select name="role" onChange={(e) => setRole(e.target.value)}>
+                <option value="">Select Role</option>
+                <option value="user">User</option>
+                <option value="admin">Admin</option>
+              </select>
+            </div>
+            <button className={styles.praButton} onClick={handleSubmit}>
+              Sign Up
+            </button>
+          </div>
+          <div className={styles.login_link}>
+            Already a member? <Link to="/login">Login</Link>
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 
