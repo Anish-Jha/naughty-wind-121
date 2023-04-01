@@ -5,7 +5,7 @@ import styles from "../styles/Signup.module.css";
 const Signup = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [pass, setPass] = useState("");
   const [location, setLocation] = useState("");
   const [gender, setGender] = useState("");
   const [role, setRole] = useState("");
@@ -16,7 +16,7 @@ const Signup = () => {
     const payload = {
       name: name,
       email: email,
-      password: password,
+      pass: pass,
       location: location,
       gender: gender,
       role: role,
@@ -66,8 +66,8 @@ const Signup = () => {
                 name=""
                 id=""
                 placeholder="Enter Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                value={pass}
+                onChange={(e) => setPass(e.target.value)}
               />
             </div>
             <div className={styles.input_space}>
@@ -90,8 +90,8 @@ const Signup = () => {
             <div className={styles.input_space}>
               <select name="role" onChange={(e) => setRole(e.target.value)}>
                 <option value="">Select Role</option>
-                <option value="user">User</option>
-                <option value="admin">Admin</option>
+                <option value="User">User</option>
+                <option value="Admin">Admin</option>
               </select>
             </div>
             <button className={styles.praButton} onClick={handleSubmit}>
