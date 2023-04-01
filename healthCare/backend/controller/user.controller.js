@@ -31,16 +31,16 @@ const deleteUser = async (req, res) => {
   }
 };
 const register = async (req, res) => {
-  const { name, email, pass, location, gender, role } = req.body;
+  const { name, email, pass, location, gender } = req.body;
 
   try {
     const user = await UserModel.findOne({ email });
     if (user) {
-      if (user.role == "Admin") {
-        return res
-          .status(200)
-          .send({ msg: "Admin already exist, please login" });
-      }
+      // if (user.role == "Admin") {
+      //   return res
+      //     .status(200)
+      //     .send({ msg: "Admin already exist, please login" });
+      // }
       return res.status(200).send({ msg: "User already exist, please login" });
     }
     bcrypt.hash(pass, 3, async (err, hash) => {
@@ -50,12 +50,12 @@ const register = async (req, res) => {
         pass: hash,
         location,
         gender,
-        role,
+        // role,
       });
       await newUser.save();
-      if (user.role == "Admin") {
-        return res.status(200).send({ msg: "A new Admin has been created" });
-      }
+      // if (user.role == "Admin") {
+      //   return res.status(200).send({ msg: "A new Admin has been created" });
+      // }
       res.status(200).send({ msg: "A new User has been created" });
     });
   } catch (err) {
