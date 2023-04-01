@@ -1,7 +1,7 @@
 const UserModel = require("../model/user.model");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-
+require("dotenv").config();
 const getAllUsers = async (req, res) => {
   try {
     const users = await UserModel.find({ role: "User" });
@@ -72,7 +72,7 @@ const login = async (req, res) => {
       if (result) {
         res.status(200).send({
           msg: "Login Succussfull!",
-          token: jwt.sign({ userID: user._id }, "healthcure"),
+          token: jwt.sign({ userID: user._id }, `${process.env.secretKey}`),
         });
       } else {
         res.status(400).send({ msg: "Wrong Credentials" });
