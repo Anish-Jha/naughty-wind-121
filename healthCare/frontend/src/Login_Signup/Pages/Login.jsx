@@ -4,14 +4,14 @@ import styles from "../styles/Login.module.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [pass, setPass] = useState("");
 
   const navigate = useNavigate();
 
   const handleSubmit = () => {
     const payload = {
       email: email,
-      password: password,
+      pass: pass,
     };
     // console.log(payload);
     fetch(`https://filthy-bee-dirndl.cyclic.app/users/login`, {
@@ -56,8 +56,8 @@ const Login = () => {
                 name=""
                 id=""
                 placeholder="Enter Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                value={pass}
+                onChange={(e) => setPass(e.target.value)}
               />
             </div>
             <button className={styles.praButton} onClick={handleSubmit}>
