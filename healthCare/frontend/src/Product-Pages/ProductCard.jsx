@@ -1,0 +1,69 @@
+import React from 'react'
+import { Box, Button, Icon, Image, Text } from '@chakra-ui/react'
+import { BiHeart } from 'react-icons/bi';
+import { AiFillStar } from 'react-icons/ai';
+import { FiShoppingCart } from 'react-icons/fi';
+import swal from 'sweetalert';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+
+
+const ProductCard = ({ props }) => {
+  const dispatch=useDispatch();
+  
+  const navigate= useNavigate();
+
+  const handlecart= (data)=>{
+     console.log("good")
+  }
+  
+  
+
+  const singleProduct= ()=>{
+    navigate(`/products/${props._id}`)
+  }
+
+
+  return (
+    <Box _hover={{ boxShadow: "rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px" }}
+      border="1px solid #dbdee9;" rounded="5px" p="10px">
+      <Box w="100%" display="flex" justifyContent="flex-end" alignItems="center">
+        <Box display="none" bg="#404040" color="white" p="5px 15px">
+          <Text m="0" fontSize="14px">Add to Wishlist</Text>
+        </Box>
+        <Icon boxSize="30px" color="#424040" as={BiHeart} />
+      </Box>
+      <Image onClick={singleProduct} w="60%" m="auto" h="180px" src={props.image} alt="img" />
+      <Box borderTop="1px solid #B8B8B8" textAlign="left" padding="10px">
+        <Box onClick={singleProduct} display="flex" justifyContent="space-between" alignItems="center" >
+          <Box w="100%" display="flex" justifyContent="space-between" alignItems="center" mt={2} mb={4}>
+            <Box bg="#2eb8b8" p="5px 10px" display="flex" justifyContent="space-between" alignItems="center">
+              <Text m="0" color="white" fontSize="15px">{props.star_rating}</Text>
+              <Icon m="0" boxSize={4} color="white" as={AiFillStar} />
+            </Box>
+            <Text fontSize="16px">{props.flexing_reviews}</Text>
+          </Box>
+        </Box>
+        <Text onClick={singleProduct} h="45px" overflow="clip" fontFamily="'Trebuchet MS', sans-serif" color="#424040" mb={5} >{props.name}</Text>
+        <Box onClick={singleProduct} w="100%" m="5px 0px" display="flex" justifyContent="space-between" alignItems="center" mb={5}>
+          <Text mt="0" color="#424040" fontSize="17px" fontWeight="bold">₹ {props.price1}</Text>
+          <Text mt="0" color="#424040" fontSize="16px" textDecoration="line-through">₹ {props.price2}</Text>
+          <Text mt="0" fontSize="13px" fontWeight="bold" color="green">{props.discount}% off</Text>
+        </Box>
+        <Box bg="#f1f4f4" onClick={singleProduct}>
+          <Box w="100%" m="auto" p="0" display="flex" justifyContent="space-between" alignItems="center" >
+            <Box boxSize="20px" display="flex" justifyContent="center" alignItems="center" border="1px solid #f66809" rounded="50%">
+              <Icon m="0" boxSize={3} color="#f66809" as={AiFillStar}/>
+            </Box>
+            <Text color="#424040" fontSize="14px">₹ {props.bold ? props.bold : props.price1}</Text>
+            <Text color="#424040" fontSize="14px"> for Premium Member</Text>
+          </Box>
+        </Box>
+        <Button onClick={()=>{handlecart(props)}}  _hover={{ bg: "#f66809", color: "white" }} mt="15px" fontWeight="bold" bg="white" w="100%" fontSize="16px"
+          rounded="8px" p="13px 0px" leftIcon={<FiShoppingCart />} color="#f66809" border="1px solid #f66809">Add to Cart</Button>
+      </Box>
+    </Box>
+  )
+}
+
+export default ProductCard

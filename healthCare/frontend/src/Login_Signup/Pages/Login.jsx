@@ -1,19 +1,20 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import styles from "../styles/Login.module.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [pass, setPass] = useState("");
 
   const navigate = useNavigate();
 
   const handleSubmit = () => {
     const payload = {
       email: email,
-      password: password,
+      pass: pass,
     };
     // console.log(payload);
-    fetch(`/users/login`, {
+    fetch(`https://filthy-bee-dirndl.cyclic.app/users/login`, {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -35,26 +36,38 @@ const Login = () => {
 
   return (
     <>
-      <div className="login_div">
-        <h3>Login Page</h3>
-        <input
-          type="text"
-          name=""
-          id=""
-          placeholder="Enter email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="password"
-          name=""
-          id=""
-          placeholder="Enter Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-
-        <button onClick={handleSubmit}>Submit</button>
+      <div className={styles.signup_box}>
+        <div className={styles.signup_main_container}>
+          <h1 className={styles.reg}>Login</h1>
+          <div className={styles.signup_container}>
+            <div className={styles.input_space}>
+              <input
+                type="text"
+                name=""
+                id=""
+                placeholder="Enter email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div className={styles.input_space}>
+              <input
+                type="password"
+                name=""
+                id=""
+                placeholder="Enter Password"
+                value={pass}
+                onChange={(e) => setPass(e.target.value)}
+              />
+            </div>
+            <button className={styles.praButton} onClick={handleSubmit}>
+              Login
+            </button>
+            <div className="login_link">
+              Not a member? <Link to="/signup">Sign Up</Link>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
