@@ -31,7 +31,11 @@ const Signup = () => {
     })
       .then((res) => res.json())
       .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+      .then((res) => alert("User Registered Successfully!"))
+      .catch((err) => {
+        console.log(err);
+        alert(err);
+      });
   };
 
   return (
