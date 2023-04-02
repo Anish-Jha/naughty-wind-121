@@ -7,9 +7,8 @@ import { HiCurrencyRupee, HiMenuAlt1, HiOutlineLogout } from 'react-icons/hi';
 import { FaBlackTie, FaBloggerB, FaTag } from 'react-icons/fa';
 import { AiFillGift, AiFillHeart } from 'react-icons/ai';
 import { BsFillChatDotsFill } from 'react-icons/bs';
-import { RiBankFill, RiCouponFill } from 'react-icons/ri';
+import { RiCouponFill } from 'react-icons/ri';
 import { CgProfile } from 'react-icons/cg';
-import { GiCardboardBoxClosed } from 'react-icons/gi';
 import { useNavigate } from 'react-router-dom';
 import logo from '../Assets/logo.jpg'
 
@@ -17,10 +16,6 @@ import logo from '../Assets/logo.jpg'
 export default function Navbar() {
     
   const [display,changeDisplay] = useState('none');
-
-  const [userShow,setuserShow] = useState(false);
-
-  const [loggedin, setloggedin] = useState(false);
 
   const [protiensShow, setprotiensShow]= useState(true);
   const [gainerShow, setgainerShow]= useState(false);
@@ -68,35 +63,9 @@ export default function Navbar() {
       </InputGroup>
     </Box>
     <Box w="17%" display="flex" justifyContent="space-between" alignItems="center">
-    {loggedin===false ? <Link to='/login'>
-      <Button display={["none", "none", "flex"]} m="0px" p="11px 25px" rounded="5px" border="none" bg="#2eb8b8" fontSize="18px" color="white">Login</Button></Link>
-           : <Box h="25px">
-            <Box position="relative" display={["none", "none", "flex"]} onClick={()=>setuserShow(!userShow)} justifyContent="space-between" alignItems="center">
-              <Icon color="#595959" boxSize="28px" as={CgProfile} />
-              <Icon color="#595959" boxSize="30px" as={ userShow? ChevronUpIcon : ChevronDownIcon} />
-            </Box>
-            <Box display={userShow? ["none", "none", "inline"] : "none"} bg="white" position="absolute" w="250px" ml="-8%" mt="5px" rounded="10px">
-              <Box onClick={()=>navigate("/")} w="100%" bg="#00cccc" p="20px 5px" roundedTop="10px" color="white" display="flex" justifyContent="space-around" alignItems="center">
-                <Icon color="white" boxSize="25px" as={CgProfile} />
-                <Text fontSize="18px">Hi, Name</Text>
-                <Icon color="white" boxSize="25px" as={ChevronRightIcon} />
-              </Box>
-              <Box p="10px" bg="white" roundedBottom="10px">
-                <Link m="10px" bg="white" display="flex" gap="10px">
-                  <Icon color="#595959" boxSize="25px" as={GiCardboardBoxClosed} />My Orders
-                </Link><br/>
-                <Link m="10px" bg="white" display="flex" gap="10px">
-                  <Icon color="#595959" boxSize="25px" as={AiFillHeart} /> Wishlist
-                </Link><br/>
-                <Link m="10px" bg="white" display="flex" gap="10px">
-                  <Icon color="#595959" boxSize="25px" as={RiBankFill} /> HK Cash
-                </Link><br/>
-                <Link m="10px" bg="white" display="flex" gap="10px">
-                  <Icon color="#00cccc" boxSize="25px" as={FiLogOut} /> Logout
-                </Link><br/>
-              </Box>
-            </Box>
-        </Box>}
+    <Link to='/login'>
+      <Button display={["none", "none", "flex"]} m="0px" p="11px 25px" rounded="5px" border="none" bg="#2eb8b8" fontSize="18px" color="white">Login</Button>
+    </Link>
       <Box display="flex" justifyContent="center" alignItems="center">
       <Link display={["flex", "flex", "flex"]} to={'/cart'}>
         <Icon m="0px" boxSize="25px" as={FiShoppingCart} />
@@ -105,6 +74,7 @@ export default function Navbar() {
     </Box>
   </Box>
   <Box>
+    
       <Flex w="100%" h="100%" color="black" bg="white" zIndex={20} pos="sticky" top="0" left="0" overflowY="auto" flexDir="column" display={display} >
        <Box display={["flex", "flex", "none"]} justifyContent="space-between" alignItems="center" bg="#00cccc" p="20px 0px">
         <IconButton mt={2} mr={2} aria-label="Close Menu" size="lg" bg="none" color="white" icon={<CloseIcon/>} onClick={()=> changeDisplay('none')} />

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "../styles/Signup.module.css";
-
+import Footer from '../../Footer/Footer'
+import Navbar from "../../Navbar/Navbar";
 const Signup = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -40,6 +41,7 @@ const Signup = () => {
 
   return (
     <>
+    <Navbar/>
       <div className={styles.signup_box}>
         <div className={styles.signup_main_container}>
           <h1 className={styles.reg}>Register</h1>
@@ -107,6 +109,7 @@ const Signup = () => {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 };

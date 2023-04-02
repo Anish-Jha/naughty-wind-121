@@ -1,15 +1,20 @@
 import { Button, Heading, Spinner, Image, Box } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react';
 import ProductCard from './ProductCard';
+import { useLocation, useSearchParams } from 'react-router-dom';
 import prod from '../Assets/prod.png';
 
 const ProductList = () => {
   const [product, setProduct] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage, setProductsPerPage] = useState(30);
+  const [searchParams] = useSearchParams();
+  const location = useLocation();
+
+  
 
   const getData = () => {
-    fetch('https://filthy-bee-dirndl.cyclic.app/products', {
+    fetch('https://filthy-bee-dirndl.cyclic.app/products',{
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`,
       },
@@ -22,9 +27,17 @@ const ProductList = () => {
       .catch((err) => console.log(err));
   };
 
+  let obj={
+    params:{
+        category:searchParams.getAll("category"),
+        _sort:searchParams.getAll('order') && 'price1',
+        _order:searchParams.get("order"),
+    }
+}
+
   useEffect(() => {
-    getData();
-  }, []);
+    getData(obj);
+  }, [location.search]);
 
   const pageNumbers = [];
   for (let i = 1; i <= Math.ceil(product.length / productsPerPage); i++) {
