@@ -1,4 +1,4 @@
-import { Box, Text, extendTheme, Button, Image } from "@chakra-ui/react";
+import { Box, Text, extendTheme, Button, Image, Heading } from "@chakra-ui/react";
 import CartCard from "./CartCard";
 import { BsPencil } from "react-icons/bs"
 import { FaShippingFast } from "react-icons/fa"
@@ -7,6 +7,8 @@ import { FiChevronRight } from "react-icons/fi"
 import { total } from "./CartCard";
 import { useEffect, useState } from "react";
 import { Link as Link } from "react-router-dom"
+import CartFooter from "./CartFooter";
+import CartNav from './CartNav';
 const breackpoints = {
     base: "420px",
     sm: "550px",
@@ -21,19 +23,18 @@ function Cart() {
 
     const [cartData, setDartData] = useState([])
     useEffect(() => {
-        const cartquantity = JSON.parse(localStorage.getItem("cartitem")) || []
+        const cartquantity = JSON.parse(localStorage.getItem("cart")) || []
         setDartData(cartquantity)
     }, [])
-    const [Total, setTotal] = useState(0)
     let t = cartData.reduce((acc, el) => {
-        return acc + (el.quantity * el.price)
+        return acc + parseInt((el.quantity * el.price1));
     }, 0)
     console.log(t)
 
-    const handleIncrement = (id) => {
+    const handleIncrement=(id) => {
 
         let d = cartData.filter((el) => {
-            if (id == el.id) {
+            if (id == el.id){
                 el.quantity++;
                 return el
             } else {
@@ -41,12 +42,12 @@ function Cart() {
             }
         })
 
-        localStorage.setItem("cartitem", JSON.stringify(d))
+        localStorage.setItem("cart", JSON.stringify(d))
 
         setDartData(d)
     }
 
-    const handleDicrement = (id) => {
+    const handleDicrement=(id)=> {
         let d = cartData.filter((el) => {
             if (id == el.id) {
                 el.quantity--;
@@ -56,31 +57,37 @@ function Cart() {
             }
         })
 
-        localStorage.setItem("cartitem", JSON.stringify(d))
+        localStorage.setItem("cart", JSON.stringify(d))
         setDartData(d)
     }
 
     const deleteCart = (i) => {
         cartData.splice(i, 1)
-        localStorage.setItem("cartitem", JSON.stringify(cartData))
-        const c = JSON.parse(localStorage.getItem("cartitem")) || []
+        localStorage.setItem("cart", JSON.stringify(cartData))
+        const c = JSON.parse(localStorage.getItem("cart")) || []
         setDartData(c)
     }
     return (
-        <Box >
-            <Box>
+        <>
+         <CartNav/>
+        <Box display={'flex'}w='100%' mt='50px' gap={'30px'}>
+           <Box border={'1px solid #bbbbbf'} borderRadius={'20px'} width={'60%'} ml='80px'>
+           <Box textAlign={'left'} pl={'20px'} pt={'20px'}>
                 <Text fontFamily="SF-Heading-font" fontSize={["22px", "25px", "28px", "30px", "35px", "35px"]}>Shopping Cart</Text>
-                <Text mt="20px">Home - our Shopping Cart</Text>
             </Box>
             <Box mt="30px">
                 {
                     cartData.length > 0 ? cartData.map((e, i) => (
                         <CartCard key={e.id} data={e} i={i} handleDicrement={handleDicrement} handleIncrement={handleIncrement} deleteCart={deleteCart} />
-                    )) : <h1>No Data in cart</h1>
+                    )) : <Heading>No Data in cart</Heading>
                 }
 
             </Box>
-            <Box mt="40px" w={["90%", "40%", "35%", "25%", "20%", "20%"]} ml={["2px", "200px", "400px", "700px", "1000px", "1000px"]}>
+           </Box>
+           
+
+           <Box w={'25%'}>
+           <Box>
                 <Box display="flex" borderBottom="1px solid gray" justifyContent="space-between">
                     <Box>
                         <BsPencil size="30px" />
@@ -106,8 +113,8 @@ function Cart() {
 
                 </Box>
 
-                <Link to="/buynow">
-                    <Button w="100%" bg="black" color="black" display="flex" justifyContent="space-between" borderRadius="0" mt="30px">
+                <Link to="/checkout">
+                    <Button w="100%"  color="black" display="flex" justifyContent="space-between" borderRadius="0" mt="30px">
                         <Box>
                             <Text >Place Order</Text>
 
@@ -120,7 +127,11 @@ function Cart() {
                     </Button>
                 </Link>
             </Box>
+           </Box>
+            
         </Box>
+        <CartFooter/>
+        </>
     )
 }
 export default Cart;

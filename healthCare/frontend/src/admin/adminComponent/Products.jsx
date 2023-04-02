@@ -9,7 +9,7 @@ const Products = ({data,pageData}) => {
   return (
     <>
     {data.length>0 && data.map((el,i)=>{
-        if(i>=(pageData-1)*10 && i< pageData*10){
+        if(i>=(pageData-1)*8 && i< pageData*8){
             return (
                 <Box>
                     <Image src={el.image} />

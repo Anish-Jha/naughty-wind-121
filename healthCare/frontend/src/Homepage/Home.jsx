@@ -1,5 +1,7 @@
 import { Box, Flex, Heading, Image } from '@chakra-ui/react'
 import React from 'react'
+import Navbar from '../Navbar/Navbar'
+import SubNav from '../Navbar/SubNav'
 import Slider1 from './Slider1';
 import TopSlider from './TopSlider';
 import image1 from './Poster/image1.jpg'
@@ -28,6 +30,7 @@ import MiddleSlider from './MiddleSlider';
 import Slider4 from './Slider4';
 import BottomSlider from './BottomSlider';
 import Slider5 from './Slider5';
+import Footer from '../Footer/Footer';
 
 export default function Home() {
     
@@ -48,6 +51,8 @@ export default function Home() {
     
   return (
     <>
+    <Navbar/>
+    <SubNav/>
       <Box bgColor={'#e4f7ff'} width={'100%'} display={'block'} textAlign='center' p='10px'>
       India's Largest D2C Nutrition Platform
       </Box>
@@ -276,7 +281,7 @@ export default function Home() {
         </Box>
       </Box>
       </Box>
-
+<Footer/>
     </>
   )
 }

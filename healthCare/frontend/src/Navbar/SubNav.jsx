@@ -1,4 +1,5 @@
-import { Box, Link, Text, Icon } from '@chakra-ui/react'
+import { Box, Text, Icon } from '@chakra-ui/react'
+import {Link} from 'react-router-dom';
 import React, { useState } from 'react'
 import { HiMenuAlt1, HiLocationMarker } from 'react-icons/hi';
 import { FaTag, FaBloggerB } from 'react-icons/fa';
@@ -104,45 +105,45 @@ const responsive={
             <Box w="75%" fontSize="15px">
               <Box className='sportsnutritiondiv' display="flex" justifyContent="space-between">
                 <Box w="20%">
-                  <Link href="" _hover={{color:"#b3ebeb"}} fontWeight="bold">Proteins</Link><br/>
-                  <Link href="" _hover={{color:"#b3ebeb"}}>Whey Proteins</Link><br/>
-                  <Link href="" _hover={{color:"#b3ebeb"}}>Beginners Whey Protein</Link><br/>
-                  <Link href="" _hover={{color:"#b3ebeb"}}>Whey Protein Isolate</Link><br/>
+                  <Link to='/product' _hover={{color:"#b3ebeb"}} fontWeight="bold">Proteins</Link><br/>
+                  <Link to='/product' _hover={{color:"#b3ebeb"}}>Whey Proteins</Link><br/>
+                  <Link to='/product' _hover={{color:"#b3ebeb"}}>Beginners Whey Protein</Link><br/>
+                  <Link to='/product' _hover={{color:"#b3ebeb"}}>Whey Protein Isolate</Link><br/>
                   <Link _hover={{color:"#b3ebeb"}}>Raw Whey Proteins</Link><br/>
-                  <Link href="" _hover={{color:"#b3ebeb"}}>Plant Proteins</Link><br/>
-                  <Link href="" _hover={{color:"#b3ebeb"}}>Protein for Women</Link><br/>
-                  <Link href="" _hover={{color:"#b3ebeb"}}>Protein Blends</Link><br/>
-                  <Link href="" _hover={{color:"#b3ebeb"}}>Casein Proteins</Link><br/>
-                  <Link href="" _hover={{color:"#b3ebeb"}}>Soy Proteins</Link><br/>
+                  <Link to='/product' _hover={{color:"#b3ebeb"}}>Plant Proteins</Link><br/>
+                  <Link to='/product' _hover={{color:"#b3ebeb"}}>Protein for Women</Link><br/>
+                  <Link to='/product' _hover={{color:"#b3ebeb"}}>Protein Blends</Link><br/>
+                  <Link to='/product' _hover={{color:"#b3ebeb"}}>Casein Proteins</Link><br/>
+                  <Link to='/product' _hover={{color:"#b3ebeb"}}>Soy Proteins</Link><br/>
                 </Box>
                 <Box w="19%">
-                  <Link  href="" _hover={{color:"#b3ebeb"}} fontWeight="bold">Gainers</Link><br/>
-                  <Link  href="" _hover={{color:"#b3ebeb"}}>Weight Gainers</Link><br/>
-                  <Link  href="" _hover={{color:"#b3ebeb"}}>Mass Gainers</Link><br/>
-                  <Link  href="" _hover={{color:"#b3ebeb"}}>Herbal Weight Gainers</Link><br/>
+                  <Link  to='/product' _hover={{color:"#b3ebeb"}} fontWeight="bold">Gainers</Link><br/>
+                  <Link  to='/product' _hover={{color:"#b3ebeb"}}>Weight Gainers</Link><br/>
+                  <Link  to='/product' _hover={{color:"#b3ebeb"}}>Mass Gainers</Link><br/>
+                  <Link  to='/product' _hover={{color:"#b3ebeb"}}>Herbal Weight Gainers</Link><br/>
                 </Box>
                 <Box w="19%">
-                  <Link href="" _hover={{color:"#b3ebeb"}} fontWeight="bold">Protein Foods</Link><br/>
-                  <Link href="" _hover={{color:"#b3ebeb"}}>Peanut Butter</Link><br/>
-                  <Link href="" _hover={{color:"#b3ebeb"}}>Muesli</Link><br/>
-                  <Link href="" _hover={{color:"#b3ebeb"}}>Protein Shakes</Link><br/>
-                  <Link href="" _hover={{color:"#b3ebeb"}}>Oats</Link><br/>
-                  <Link href="" _hover={{color:"#b3ebeb"}}>Cereals</Link><br/>
-                  <Link href="" _hover={{color:"#b3ebeb"}}>Granola</Link><br/>
-                  <Link href="" _hover={{color:"#b3ebeb"}}>Protein Bars</Link><br/>
-                  <Link href="" _hover={{color:"#b3ebeb"}}>Protein Water</Link><br/>
+                  <Link to='/product' _hover={{color:"#b3ebeb"}} fontWeight="bold">Protein Foods</Link><br/>
+                  <Link to='/product' _hover={{color:"#b3ebeb"}}>Peanut Butter</Link><br/>
+                  <Link to='/product' _hover={{color:"#b3ebeb"}}>Muesli</Link><br/>
+                  <Link to='/product' _hover={{color:"#b3ebeb"}}>Protein Shakes</Link><br/>
+                  <Link to='/product' _hover={{color:"#b3ebeb"}}>Oats</Link><br/>
+                  <Link to='/product' _hover={{color:"#b3ebeb"}}>Cereals</Link><br/>
+                  <Link to='/product' _hover={{color:"#b3ebeb"}}>Granola</Link><br/>
+                  <Link to='/product' _hover={{color:"#b3ebeb"}}>Protein Bars</Link><br/>
+                  <Link to='/product' _hover={{color:"#b3ebeb"}}>Protein Water</Link><br/>
                 </Box>
                 <Box w="19%">
-                  <Link href="" fontWeight="bold">Pre/Post Workout</Link><br/>
-                  <Link href="" _hover={{color:"#b3ebeb"}}>Pre-Workout</Link><br/>
-                  <Link href="" _hover={{color:"#b3ebeb"}}>Creatine</Link><br/>
-                  <Link href="" _hover={{color:"#b3ebeb"}}>BCAAs</Link><br/>
-                  <Link href="" _hover={{color:"#b3ebeb"}}>Carb Blends</Link><br/>
-                  <Link href="" _hover={{color:"#b3ebeb"}}>Electrolytes</Link><br/>
-                  <Link href="" _hover={{color:"#b3ebeb"}}>EAA</Link><br/>
-                  <Link href="" _hover={{color:"#b3ebeb"}}>Nitric Oxide</Link><br/>
-                  <Link href="" _hover={{color:"#b3ebeb"}}>Other Supports</Link><br/>
-                  <Link href="" _hover={{color:"#b3ebeb"}}>Citrulline Malate</Link><br/>
+                  <Link to='/product' fontWeight="bold">Pre/Post Workout</Link><br/>
+                  <Link to='/product' _hover={{color:"#b3ebeb"}}>Pre-Workout</Link><br/>
+                  <Link to='/product' _hover={{color:"#b3ebeb"}}>Creatine</Link><br/>
+                  <Link to='/product' _hover={{color:"#b3ebeb"}}>BCAAs</Link><br/>
+                  <Link to='/product' _hover={{color:"#b3ebeb"}}>Carb Blends</Link><br/>
+                  <Link to='/product' _hover={{color:"#b3ebeb"}}>Electrolytes</Link><br/>
+                  <Link to='/product' _hover={{color:"#b3ebeb"}}>EAA</Link><br/>
+                  <Link to='/product' _hover={{color:"#b3ebeb"}}>Nitric Oxide</Link><br/>
+                  <Link to='/product' _hover={{color:"#b3ebeb"}}>Other Supports</Link><br/>
+                  <Link to='/product' _hover={{color:"#b3ebeb"}}>Citrulline Malate</Link><br/>
                 </Box>
                 <Box w="20%">
                   <Link href='' _hover={{color:"#b3ebeb"}} fontWeight="bold">Workout Essentials</Link><br/>
@@ -178,18 +179,18 @@ const responsive={
             <Box w="58%" fontSize="15px" paddingLeft={'10px'} height={'400px'}>
               <Box className='sportsnutritiondiv' display="flex" justifyContent="space-between">
                 <Box lineHeight={'30px'}>
-                  <Link href="" _hover={{color:"#b3ebeb"}}>Protein Powder</Link><br/>
-                  <Link href="" _hover={{color:"#b3ebeb"}}>Whey Protein</Link><br/>
-                  <Link href="" _hover={{color:"#b3ebeb"}}>Beginners Whey Protein</Link><br/>
-                  <Link href="" _hover={{color:"#b3ebeb"}}>Whey Protein Isolate</Link><br/>
-                  <Link href="" _hover={{color:"#b3ebeb"}}>Mass Gainer</Link><br/>
-                  <Link href="" _hover={{color:"#b3ebeb"}}>BCAA</Link><br/>
-                  <Link href="" _hover={{color:"#b3ebeb"}}>Fat Burners</Link><br/>
-                  <Link href="" _hover={{color:"#b3ebeb"}}>Pre Workout</Link><br/>
-                  <Link href="" _hover={{color:"#b3ebeb"}}>Creatine</Link><br/>
-                  <Link href="" _hover={{color:"#b3ebeb"}}>Protein Bars</Link><br/>
-                  <Link href="" _hover={{color:"#b3ebeb"}}>Weight Gainer</Link><br/>
-                  <Link href="" _hover={{color:"#b3ebeb"}}>Carb Blends</Link><br/>
+                  <Link to='/product' _hover={{color:"#b3ebeb"}}>Protein Powder</Link><br/>
+                  <Link to='/product' _hover={{color:"#b3ebeb"}}>Whey Protein</Link><br/>
+                  <Link to='/product' _hover={{color:"#b3ebeb"}}>Beginners Whey Protein</Link><br/>
+                  <Link to='/product' _hover={{color:"#b3ebeb"}}>Whey Protein Isolate</Link><br/>
+                  <Link to='/product' _hover={{color:"#b3ebeb"}}>Mass Gainer</Link><br/>
+                  <Link to='/product' _hover={{color:"#b3ebeb"}}>BCAA</Link><br/>
+                  <Link to='/product' _hover={{color:"#b3ebeb"}}>Fat Burners</Link><br/>
+                  <Link to='/product' _hover={{color:"#b3ebeb"}}>Pre Workout</Link><br/>
+                  <Link to='/product' _hover={{color:"#b3ebeb"}}>Creatine</Link><br/>
+                  <Link to='/product' _hover={{color:"#b3ebeb"}}>Protein Bars</Link><br/>
+                  <Link to='/product' _hover={{color:"#b3ebeb"}}>Weight Gainer</Link><br/>
+                  <Link to='/product' _hover={{color:"#b3ebeb"}}>Carb Blends</Link><br/>
                 </Box>
               </Box>
             </Box>

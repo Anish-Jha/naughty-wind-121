@@ -6,58 +6,58 @@ import {TbSquareDot} from 'react-icons/tb'
 import { FiShoppingCart } from 'react-icons/fi';
 import { SlHeart } from 'react-icons/sl';
 
-function Slider5() {
+function Slider2() {
   const items = [
     {
       title: "MuscleBlaze Raw Whey Protein",
       description: "80% Powder, 1 kg unflavoured",
-      imageUrl: "https://via.placeholder.com/150x150",
+      imageUrl: "https://img4.hkrtcdn.com/11855/prd_1185493-MuscleBlaze-Mass-Gainer-XXL-2.2-lb-Chocolate_c_s.jpg",
       price:'₹ 1699'
 
     },
     {
       title: "MuscleBlaze Raw Whey Protein",
       description: "80% Powder, 1 kg unflavoured",
-      imageUrl: "https://via.placeholder.com/150x150",
+      imageUrl: "https://img1.hkrtcdn.com/19806/prd_1980590-Labrada-Muscle-Mass-Gainer-11-lb-Chocolate_c_s.jpg",
       price:'₹ 1699'
     },
     {
       title: "MuscleBlaze Raw Whey Protein",
       description: "80% Powder, 1 kg unflavoured",
-      imageUrl: "https://via.placeholder.com/150x150",
+      imageUrl: "https://img4.hkrtcdn.com/12083/prd_1208273-MuscleBlaze-Mass-Gainer-XXL-4.4-lb-Chocolate_c_s.jpg",
       price:'₹ 1699'
     },
     {
       title: "MuscleBlaze Raw Whey Protein",
       description: "80% Powder, 1 kg unflavoured",
-      imageUrl: "https://via.placeholder.com/150x150",
+      imageUrl: "https://img9.hkrtcdn.com/19806/prd_1980598-Labrada-Muscle-Mass-Gainer-2.2-lb-Chocolate_c_s.jpg",
       price:'₹ 1699'
     },
     {
       title: "MuscleBlaze Raw Whey Protein",
       description: "80% Powder, 1 kg unflavoured",
-      imageUrl: "https://via.placeholder.com/150x150",
+      imageUrl: "https://img1.hkrtcdn.com/19806/prd_1980590-Labrada-Muscle-Mass-Gainer-11-lb-Chocolate_c_s.jpg",
       price:'₹ 1699'
-    },
-    {
-      title: "MuscleBlaze Raw Whey Protein",
-      description: "80% Powder, 1 kg unflavoured",
-      imageUrl: "https://via.placeholder.com/150x150",
-      price:'₹ 1699'
-    },
-    {
-      title: "MuscleBlaze Raw Whey Protein",
-      description: "80% Powder, 1 kg unflavoured",
-      imageUrl: "https://via.placeholder.com/150x150",
-      price:'₹ 1699'
-    },
-    {
-      title: "MuscleBlaze Raw Whey Protein",
-      description: "80% Powder, 1 kg unflavoured",
-      imageUrl: "https://via.placeholder.com/150x150",
-      price:'₹ 1699'
-    },
-  ];
+  },
+  {
+    title: "MuscleBlaze Raw Whey Protein",
+    description: "80% Powder, 1 kg unflavoured",
+    imageUrl: "https://img9.hkrtcdn.com/19806/prd_1980598-Labrada-Muscle-Mass-Gainer-2.2-lb-Chocolate_c_s.jpg",
+    price:'₹ 1699'
+  },
+  {
+    title: "MuscleBlaze Raw Whey Protein",
+    description: "80% Powder, 1 kg unflavoured",
+    imageUrl: "https://img4.hkrtcdn.com/11855/prd_1185493-MuscleBlaze-Mass-Gainer-XXL-2.2-lb-Chocolate_c_s.jpg",
+    price:'₹ 1699'
+  },
+  {
+    title: "MuscleBlaze Raw Whey Protein",
+    description: "80% Powder, 1 kg unflavoured",
+    imageUrl: "https://img9.hkrtcdn.com/19806/prd_1980598-Labrada-Muscle-Mass-Gainer-2.2-lb-Chocolate_c_s.jpg",
+    price:'₹ 1699'
+  },
+];
   
   return (
     <Box>
@@ -80,4 +80,4 @@ function Slider5() {
   );
 }
 
-export default Slider5;
+export default Slider2;

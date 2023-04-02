@@ -30,7 +30,7 @@ import {
   AccordionPanel,
   AccordionIcon,
 } from "@chakra-ui/react";
-
+import { Navigate } from "react-router-dom";
 const CheckoutDetails = () => {
   const toast = useToast();
 
@@ -110,7 +110,9 @@ const CheckoutDetails = () => {
                 isClosable: true,
                 position: "top",
               });
+             
             }
+            // return <Navigate to='/'/>
           }}
         >
           Place Order

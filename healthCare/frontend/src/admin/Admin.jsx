@@ -47,21 +47,27 @@ const Admin = () => {
     setProductComState(false);
   }
 
-  const getData = async() =>{
-  const res = await fetch("https://filthy-bee-dirndl.cyclic.app/");
-  const resData = await res.json();
-  console.log(resData)
-  setData(resData)
-  };
-
-  const handlePagination = (page) =>{
-    setPageData(page)
+const getData = () => {
+  fetch('https://filthy-bee-dirndl.cyclic.app/products', {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+    },
+  })
+    .then((res) => res.json())
+    .then((res) => {
+      console.log(res);
+      setData(res);
+    })
+    .catch((err) => console.log(err));
+};
+const handlePagination = (page) =>{
+  setPageData(page)
 console.log(page)
-  }
+}
 
-  useEffect(()=>{
-    getData()
-  },[])
+useEffect(() => {
+  getData();
+}, []);
 
   return (
     <>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { Box, Button, Image, Input, InputGroup, Icon, Text, Link, Flex, IconButton } from '@chakra-ui/react'
+import { Box, Button, Image, Input, InputGroup, Icon, Text, Flex, IconButton } from '@chakra-ui/react'
+import { Link } from 'react-router-dom';
 import { AddIcon, ArrowBackIcon, ChevronDownIcon, ChevronRightIcon, ChevronUpIcon, CloseIcon, HamburgerIcon, MinusIcon, Search2Icon } from '@chakra-ui/icons';
 import { FiLogOut, FiShoppingCart } from 'react-icons/fi';
 import { HiCurrencyRupee, HiMenuAlt1, HiOutlineLogout } from 'react-icons/hi';
@@ -10,7 +11,6 @@ import { RiBankFill, RiCouponFill } from 'react-icons/ri';
 import { CgProfile } from 'react-icons/cg';
 import { GiCardboardBoxClosed } from 'react-icons/gi';
 import { useNavigate } from 'react-router-dom';
-
 import logo from '../Assets/logo.jpg'
 
 
@@ -68,7 +68,8 @@ export default function Navbar() {
       </InputGroup>
     </Box>
     <Box w="17%" display="flex" justifyContent="space-between" alignItems="center">
-    {loggedin===false ? <Button display={["none", "none", "flex"]} m="0px" p="11px 25px" rounded="5px" border="none" bg="#2eb8b8" fontSize="18px" color="white">Login</Button>
+    {loggedin===false ? <Link to='/login'>
+      <Button display={["none", "none", "flex"]} m="0px" p="11px 25px" rounded="5px" border="none" bg="#2eb8b8" fontSize="18px" color="white">Login</Button></Link>
            : <Box h="25px">
             <Box position="relative" display={["none", "none", "flex"]} onClick={()=>setuserShow(!userShow)} justifyContent="space-between" alignItems="center">
               <Icon color="#595959" boxSize="28px" as={CgProfile} />
@@ -97,25 +98,25 @@ export default function Navbar() {
             </Box>
         </Box>}
       <Box display="flex" justifyContent="center" alignItems="center">
-      <Link display={["flex", "flex", "flex"]} href="/cart">
+      <Link display={["flex", "flex", "flex"]} to={'/cart'}>
         <Icon m="0px" boxSize="25px" as={FiShoppingCart} />
         </Link>
       </Box>
     </Box>
   </Box>
   <Box>
-      <Flex border={'1px solid red'} w="100%" h="100%" color="black" bg="white" zIndex={20} pos="sticky" top="0" left="0" overflowY="auto" flexDir="column" display={display} >
-       <Box display={["flex", "flex", "none"]} justifyContent="space-between" alignItems="center" bg="#00cccc" p="25px 0px">
+      <Flex w="100%" h="100%" color="black" bg="white" zIndex={20} pos="sticky" top="0" left="0" overflowY="auto" flexDir="column" display={display} >
+       <Box display={["flex", "flex", "none"]} justifyContent="space-between" alignItems="center" bg="#00cccc" p="20px 0px">
         <IconButton mt={2} mr={2} aria-label="Close Menu" size="lg" bg="none" color="white" icon={<CloseIcon/>} onClick={()=> changeDisplay('none')} />
-        <Box w="90%" display="flex" justifyContent="center">
-          <Text bg="white" rounded="5px" p="10px 35px" color="#00cccc" fontSize="25px">Login / Signup</Text>
+        <Box w="80%" display="flex" justifyContent="center">
+          <Text bg="white" rounded="5px" p="10px 25px" color="#00cccc" fontSize="18px">Login / Signup</Text>
         </Box>
         </Box>
-        <Box display={(categories || bestSellers)? "none" : ["flex", "flex", "none"]} gap="30px" flexDir="column" align="center" fontSize="2xl" color="#1a0933" >
+        <Box display={(categories || bestSellers)? "none" : ["flex", "flex", "none"]} gap="10px" flexDir="column" align="center" fontSize="14px" color="#1a0933" >
             <Box w="90%" m="auto" display="flex" justifyContent="space-between" alignItems="center">
-              <Box onClick={()=>handleCategories()} display="flex" p="15px 0px" justifyContent="space-between" alignItems="center" gap="5px">
+              <Box onClick={()=>handleCategories()} display="flex" p="15px 0px" justifyContent="space-between" alignItems="center" fontSize="14px" gap="5px">
                 <Icon color="#595959" boxSize="28px" as={HiMenuAlt1} />
-                <Text color="#595959">Categories</Text>
+                <Text fontSize="14px" color="#595959">Categories</Text>
               </Box>
               <Icon color="#595959" boxSize="30px" as={ChevronRightIcon} />
             </Box>
@@ -185,13 +186,13 @@ export default function Navbar() {
         </Box>
 
         <Box display={categories? "inline" : "none"} color="#595959">
-          <Box onClick={()=>setCategories(!categories)} p="5px 10px" borderBottom="1px solid grey" fontSize="26px" 
+          <Box onClick={()=>setCategories(!categories)} p="5px 10px" borderBottom="1px solid grey" fontSize="18px" 
           display={["flex", "flex", "none"]} justifyContent="flex-start" alignItems="center" gap="10px">
             <Icon as={ArrowBackIcon} />
             <Text>Categories</Text>
           </Box>
           <Box w="100%" m="auto" display={["flex","flex", "none"]} justifyContent="space-between">
-            <Box w="35%" bg="#e6f2ff" lineHeight="40px" fontSize="20px">
+            <Box w="35%" bg="#e6f2ff" lineHeight="40px" fontSize="14px">
               <Box color="#29a3a3" bg="white"  p="10px">
                 <Link>Sports Nutrition</Link>
               </Box>
@@ -211,24 +212,26 @@ export default function Navbar() {
                 <Link>Wellness</Link>
               </Box>
             </Box>
-            <Box w="62%" fontSize="20px">
+            <Box w="62%" fontSize="18px">
               <Box className='sportsnutritiondiv'>
                 <Box w="90%" m="0px" pt="3px">
                   <Box onClick={()=>setprotiensShow(!protiensShow)} display={["flex", "flex", "none"]}
                   justifyContent="space-between" alignItems="center">
+                    <Link to={'/product'}>
                     <Text m="0px" _hover={{color:"#29a3a3"}} >Proteins</Text>
+                    </Link>
                     <Icon m="0px" _hover={{color:"#29a3a3"}} as={protiensShow? MinusIcon : AddIcon} />
                   </Box>
-                  <Box fontSize="17px" display={protiensShow? ["inline", "inline", "none"] : "none"}>
-                    <Link href="" _hover={{color:"#29a3a3"}}>Whey Proteins</Link><br/>
-                    <Link href="" _hover={{color:"#29a3a3"}}>Beginners Whey Protein</Link><br/>
-                    <Link href="" _hover={{color:"#29a3a3"}}>Whey Protein Isolate</Link><br/>
-                    <Link href="" _hover={{color:"#29a3a3"}}>Raw Whey Proteins</Link><br/>
-                    <Link href="" _hover={{color:"#29a3a3"}}>Plant Proteins</Link><br/>
-                    <Link href="" _hover={{color:"#29a3a3"}}>Protein for Women</Link><br/>
-                    <Link href="" _hover={{color:"#29a3a3"}}>Protein Blends</Link><br/>
-                    <Link href="" _hover={{color:"#29a3a3"}}>Casein Proteins</Link><br/>
-                    <Link href="" _hover={{color:"#29a3a3"}}>Soy Proteins</Link><br/>
+                  <Box textAlign={'left'} fontSize="12px" display={protiensShow? ["inline", "inline", "none"] : "none"}>
+                    <Link to='/product' _hover={{color:"#29a3a3"}}>Whey Proteins</Link><br/>
+                    <Link to='/product' _hover={{color:"#29a3a3"}}>Beginners Whey Protein</Link><br/>
+                    <Link to='/product' _hover={{color:"#29a3a3"}}>Whey Protein Isolate</Link><br/>
+                    <Link to='/product' _hover={{color:"#29a3a3"}}>Raw Whey Proteins</Link><br/>
+                    <Link to='/product' _hover={{color:"#29a3a3"}}>Plant Proteins</Link><br/>
+                    <Link to='/product' _hover={{color:"#29a3a3"}}>Protein for Women</Link><br/>
+                    <Link to='/product' _hover={{color:"#29a3a3"}}>Protein Blends</Link><br/>
+                    <Link to='/product' _hover={{color:"#29a3a3"}}>Casein Proteins</Link><br/>
+                    <Link to='/product' _hover={{color:"#29a3a3"}}>Soy Proteins</Link><br/>
                   </Box>
                 </Box>
                 <Box w="90%" m="0px" pt="3px">
@@ -237,10 +240,10 @@ export default function Navbar() {
                     <Text m="0px" _hover={{color:"#29a3a3"}}>Gainers</Text>
                     <Icon m="0px" _hover={{color:"#29a3a3"}} as={gainerShow? MinusIcon : AddIcon} />
                   </Box>
-                  <Box fontSize="17px" display={gainerShow? ["inline", "inline", "none"] : "none"}>
-                    <Link  href="" _hover={{color:"#29a3a3"}}>Weight Gainers</Link><br/>
-                    <Link  href="" _hover={{color:"#29a3a3"}}>Mass Gainers</Link><br/>
-                    <Link  href="" _hover={{color:"#29a3a3"}}>Herbal Weight Gainers</Link><br/>
+                  <Box fontSize="14px" display={gainerShow? ["inline", "inline", "none"] : "none"}>
+                    <Link  to='/product' _hover={{color:"#29a3a3"}}>Weight Gainers</Link><br/>
+                    <Link  to='/product' _hover={{color:"#29a3a3"}}>Mass Gainers</Link><br/>
+                    <Link  to='/product' _hover={{color:"#29a3a3"}}>Herbal Weight Gainers</Link><br/>
                   </Box>
                 </Box>
                 <Box w="90%" m="0px" pt="3px">
@@ -249,15 +252,15 @@ export default function Navbar() {
                     <Text m="0px" _hover={{color:"#29a3a3"}} >Protein Foods</Text>
                     <Icon m="0px" _hover={{color:"#29a3a3"}}  as={protienfoodsShow? MinusIcon : AddIcon} />
                   </Box>
-                  <Box fontSize="17px" display={protienfoodsShow? ["inline", "inline", "none"] : "none"}>
-                    <Link href="" _hover={{color:"#29a3a3"}}>Peanut Butter</Link><br/>
-                    <Link href="" _hover={{color:"#29a3a3"}}>Muesli</Link><br/>
-                    <Link href="" _hover={{color:"#29a3a3"}}>Protein Shakes</Link><br/>
-                    <Link href="" _hover={{color:"#29a3a3"}}>Oats</Link><br/>
-                    <Link href="" _hover={{color:"#29a3a3"}}>Cereals</Link><br/>
-                    <Link href="" _hover={{color:"#29a3a3"}}>Granola</Link><br/>
-                    <Link href="" _hover={{color:"#29a3a3"}}>Protein Bars</Link><br/>
-                    <Link href="" _hover={{color:"#29a3a3"}}>Protein Water</Link><br/>
+                  <Box fontSize="14px" display={protienfoodsShow? ["inline", "inline", "none"] : "none"}>
+                    <Link to='/product' _hover={{color:"#29a3a3"}}>Peanut Butter</Link><br/>
+                    <Link to='/product' _hover={{color:"#29a3a3"}}>Muesli</Link><br/>
+                    <Link to='/product' _hover={{color:"#29a3a3"}}>Protein Shakes</Link><br/>
+                    <Link to='/product' _hover={{color:"#29a3a3"}}>Oats</Link><br/>
+                    <Link to='/product' _hover={{color:"#29a3a3"}}>Cereals</Link><br/>
+                    <Link to='/product' _hover={{color:"#29a3a3"}}>Granola</Link><br/>
+                    <Link to='/product' _hover={{color:"#29a3a3"}}>Protein Bars</Link><br/>
+                    <Link to='/product' _hover={{color:"#29a3a3"}}>Protein Water</Link><br/>
                   </Box>
                 </Box>
                 <Box w="90%" m="0px" pt="3px">
@@ -266,16 +269,16 @@ export default function Navbar() {
                     <Text m="0px" _hover={{color:"#29a3a3"}}>Pre/Post Workout</Text>
                     <Icon m="0px" _hover={{color:"#29a3a3"}} as={prepostShow? MinusIcon : AddIcon} />
                   </Box>
-                  <Box fontSize="17px" display={prepostShow? ["inline", "inline", "none"] : "none"}>
-                    <Link href="" _hover={{color:"#29a3a3"}}>Pre-Workout</Link><br/>
-                    <Link href="" _hover={{color:"#29a3a3"}}>Creatine</Link><br/>
-                    <Link href="" _hover={{color:"#29a3a3"}}>BCAAs</Link><br/>
-                    <Link href="" _hover={{color:"#29a3a3"}}>Carb Blends</Link><br/>
-                    <Link href="" _hover={{color:"#29a3a3"}}>Electrolytes</Link><br/>
-                    <Link href="" _hover={{color:"#29a3a3"}}>EAA</Link><br/>
-                    <Link href="" _hover={{color:"#29a3a3"}}>Nitric Oxide</Link><br/>
-                    <Link href="" _hover={{color:"#29a3a3"}}>Other Supports</Link><br/>
-                    <Link href="" _hover={{color:"#29a3a3"}}>Citrulline Malate</Link><br/>
+                  <Box fontSize="14px" display={prepostShow? ["inline", "inline", "none"] : "none"}>
+                    <Link to='/product' _hover={{color:"#29a3a3"}}>Pre-Workout</Link><br/>
+                    <Link to='/product' _hover={{color:"#29a3a3"}}>Creatine</Link><br/>
+                    <Link to='/product' _hover={{color:"#29a3a3"}}>BCAAs</Link><br/>
+                    <Link to='/product' _hover={{color:"#29a3a3"}}>Carb Blends</Link><br/>
+                    <Link to='/product' _hover={{color:"#29a3a3"}}>Electrolytes</Link><br/>
+                    <Link to='/product' _hover={{color:"#29a3a3"}}>EAA</Link><br/>
+                    <Link to='/product' _hover={{color:"#29a3a3"}}>Nitric Oxide</Link><br/>
+                    <Link to='/product' _hover={{color:"#29a3a3"}}>Other Supports</Link><br/>
+                    <Link to='/product' _hover={{color:"#29a3a3"}}>Citrulline Malate</Link><br/>
                   </Box>
                 </Box>
                 <Box w="90%" m="0px" pt="3px">
@@ -314,15 +317,15 @@ export default function Navbar() {
                     <Icon m="0px" _hover={{color:"#29a3a3"}} as={sportNutrition? MinusIcon : AddIcon} />
                   </Box>
                   <Box fontSize="19px" display={sportNutrition? ["inline", "inline", "none"] : "none"}>
-                    <Link href="" _hover={{color:"#29a3a3"}}>Whey Proteins</Link><br/>
-                    <Link href="" _hover={{color:"#29a3a3"}}>Beginners Whey Protein</Link><br/>
-                    <Link href="" _hover={{color:"#29a3a3"}}>Whey Protein Isolate</Link><br/>
-                    <Link href="" _hover={{color:"#29a3a3"}}>Raw Whey Proteins</Link><br/>
-                    <Link href="" _hover={{color:"#29a3a3"}}>Plant Proteins</Link><br/>
-                    <Link href="" _hover={{color:"#29a3a3"}}>Protein for Women</Link><br/>
-                    <Link href="" _hover={{color:"#29a3a3"}}>Protein Blends</Link><br/>
-                    <Link href="" _hover={{color:"#29a3a3"}}>Casein Proteins</Link><br/>
-                    <Link href="" _hover={{color:"#29a3a3"}}>Soy Proteins</Link><br/>
+                    <Link to='/product' _hover={{color:"#29a3a3"}}>Whey Proteins</Link><br/>
+                    <Link to='/product' _hover={{color:"#29a3a3"}}>Beginners Whey Protein</Link><br/>
+                    <Link to='/product' _hover={{color:"#29a3a3"}}>Whey Protein Isolate</Link><br/>
+                    <Link to='/product' _hover={{color:"#29a3a3"}}>Raw Whey Proteins</Link><br/>
+                    <Link to='/product' _hover={{color:"#29a3a3"}}>Plant Proteins</Link><br/>
+                    <Link to='/product' _hover={{color:"#29a3a3"}}>Protein for Women</Link><br/>
+                    <Link to='/product' _hover={{color:"#29a3a3"}}>Protein Blends</Link><br/>
+                    <Link to='/product' _hover={{color:"#29a3a3"}}>Casein Proteins</Link><br/>
+                    <Link to='/product' _hover={{color:"#29a3a3"}}>Soy Proteins</Link><br/>
                   </Box>
                 </Box>
                 <Box w="85%" m="auto" pt="3px" borderBottom="1px solid grey" p="10px 0px">
@@ -332,9 +335,9 @@ export default function Navbar() {
                     <Icon m="0px" _hover={{color:"#29a3a3"}} as={healthNutrition? MinusIcon : AddIcon} />
                   </Box>
                   <Box fontSize="19px" display={healthNutrition? ["inline", "inline", "none"] : "none"}>
-                    <Link  href="" _hover={{color:"#29a3a3"}}>Weight Gainers</Link><br/>
-                    <Link  href="" _hover={{color:"#29a3a3"}}>Mass Gainers</Link><br/>
-                    <Link  href="" _hover={{color:"#29a3a3"}}>Herbal Weight Gainers</Link><br/>
+                    <Link  to='/product' _hover={{color:"#29a3a3"}}>Weight Gainers</Link><br/>
+                    <Link  to='/product' _hover={{color:"#29a3a3"}}>Mass Gainers</Link><br/>
+                    <Link  to='/product' _hover={{color:"#29a3a3"}}>Herbal Weight Gainers</Link><br/>
                   </Box>
                 </Box>
                 <Box w="85%" m="auto" pt="3px" borderBottom="1px solid grey" p="10px 0px">
@@ -344,14 +347,14 @@ export default function Navbar() {
                     <Icon m="0px" _hover={{color:"#29a3a3"}}  as={fitness? MinusIcon : AddIcon} />
                   </Box>
                   <Box fontSize="19px" display={fitness? ["inline", "inline", "none"] : "none"}>
-                    <Link href="" _hover={{color:"#29a3a3"}}>Peanut Butter</Link><br/>
-                    <Link href="" _hover={{color:"#29a3a3"}}>Muesli</Link><br/>
-                    <Link href="" _hover={{color:"#29a3a3"}}>Protein Shakes</Link><br/>
-                    <Link href="" _hover={{color:"#29a3a3"}}>Oats</Link><br/>
-                    <Link href="" _hover={{color:"#29a3a3"}}>Cereals</Link><br/>
-                    <Link href="" _hover={{color:"#29a3a3"}}>Granola</Link><br/>
-                    <Link href="" _hover={{color:"#29a3a3"}}>Protein Bars</Link><br/>
-                    <Link href="" _hover={{color:"#29a3a3"}}>Protein Water</Link><br/>
+                    <Link to='/product' _hover={{color:"#29a3a3"}}>Peanut Butter</Link><br/>
+                    <Link to='/product' _hover={{color:"#29a3a3"}}>Muesli</Link><br/>
+                    <Link to='/product' _hover={{color:"#29a3a3"}}>Protein Shakes</Link><br/>
+                    <Link to='/product' _hover={{color:"#29a3a3"}}>Oats</Link><br/>
+                    <Link to='/product' _hover={{color:"#29a3a3"}}>Cereals</Link><br/>
+                    <Link to='/product' _hover={{color:"#29a3a3"}}>Granola</Link><br/>
+                    <Link to='/product' _hover={{color:"#29a3a3"}}>Protein Bars</Link><br/>
+                    <Link to='/product' _hover={{color:"#29a3a3"}}>Protein Water</Link><br/>
                   </Box>
                 </Box>
                 <Box w="85%" m="auto" pt="3px" borderBottom="1px solid grey" p="10px 0px">

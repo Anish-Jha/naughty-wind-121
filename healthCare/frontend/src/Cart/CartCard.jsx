@@ -1,49 +1,40 @@
 import { Box, Button, Image, Text } from "@chakra-ui/react";
 import { useState } from "react";
-
+import {RiDeleteBin6Line} from 'react-icons/ri'
+import {AiOutlineHeart} from 'react-icons/ai'
 export const total=[];
 function CartCard({data,handleDicrement,handleIncrement,i,deleteCart}){
-    const cartData=JSON.parse(localStorage.getItem("cartitem"))||[]
+    const cartData=JSON.parse(localStorage.getItem("cart"))||[]
     const [count,setCount]=useState(1)
     const handleCount=(val)=>{
         setCount(count+val)
     }
-
+// total.push(count*data.price);
+    // console.log(data.image)
     return(
-        <Box display={["","flex","flex","flex","flex","flex"]} w="95%" m="auto" justifyContent="space-between" borderTop="1px solid gray" borderBottom="1px solid gray" fontFamily="sans-serif" alignContent="center" alignItems="center">
-                <Box w={["50%","30%","30%","35%","35%","40%"]}  m="auto">
-                    <Text fontWeight="bold">Product</Text>
-                    <Box display="flex" gap="10px">
-                        <Box w={["90%","60%","50%","25%","20%","20%"]}>
+        <Box display={["","flex","flex","flex","flex","flex"]} padding={'10px'} w="95%" justifyContent="space-between" border="1px solid gray" borderRadius={'10px'} fontFamily="sans-serif" alignContent="center" alignItems="center" m='20px'>
+                <Box w={["50%","30%","30%","35%","80%","80%"]}>
+                    <Box display="flex" gap={'20px'}>
+                        <Box w={["90%","60%","50%","25%","20%","40%"]}>
                             <Image src={data.image}/>
                         </Box>
-                        <Box m="auto">
-                            <Text>{data.name}</Text>
-                            <Text>{data.subhead}</Text>
-                            <Button onClick={()=>deleteCart(i)}>Remove</Button>
+                        <Box>
+                            <Text fontWeight={'600'} fontSize={'14px'}>{data.name}</Text>
+                            <p style={{color:"#1C1C28", textAlign:"left", fontWeight:"500",lineHeight:"28px",marginTop:"5px",fontSize:"16px"}}>₹ {data.price1} <span style={{textDecoration:'line-through',marginLeft:'5px',color:"grey"}}>₹ {data.price2}</span> <span style={{color:"green",marginLeft:"5px",fontSize:"13px"}}>{data.discount}% off</span></p>       
+                        <Box display="flex" width={'100px'}>
+                        <Button onClick={()=>handleIncrement(data.id)}>+</Button>
+                        <Text  m="auto">{data.quantity}</Text>
+                        <Button isDisabled={data.quantity==1? true:false} onClick={()=>handleDicrement(data.id)}>-</Button>
+                       
+                    </Box>
                         </Box>
                     </Box>
-                </Box>
-
-                <Box>
-                    <Text fontWeight="bold">Price</Text>
-                    <Text>{data.price}</Text>
                 </Box>
 
 
                 <Box w="100px" m="auto">
-                    <Text fontWeight="bold">Quantity</Text>
-                    <Box display="flex" border="1px solid gray" bg="none">
-                        <Button bg="none" onClick={()=>handleIncrement(data.id)}>+</Button>
-                        <Text  m="auto">{data.quantity}</Text>
-                        <Button bg="none" isDisabled={data.quantity==1? true:false} onClick={()=>handleDicrement(data.id)}>-</Button>
-                    </Box>
-                </Box>
-
-                <Box fontWeight="bold">
-                    <Text >Total</Text>
-                    <Text>{data.quantity*data.price}</Text>
-
+                <Button variant={'unstyled'} onClick={()=>deleteCart(i)}><RiDeleteBin6Line/></Button>
+                <Button variant={'unstyled'}><AiOutlineHeart/></Button>
                 </Box>
         </Box>
         
