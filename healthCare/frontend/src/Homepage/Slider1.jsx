@@ -78,21 +78,22 @@ function Slider1() {
     <Box className="scroll-wrap">
       {items.map((item, index) => (
         <Box key={index} border='1px solid rgba(136, 133, 133, 0.781)' borderRadius={'10px'} className="item">
-          <img src={item.imageUrl} alt={item.title} />
+          <img src={item.imageUrl} alt={item.title}/>
+          <p style={{fontSize:"13px"}}><span style={{backgroundColor:'#1eaaeb',width:'auto',color:'white',padding:"2px 5px 2px 5px", borderRadius:'3px',marginRight:"10px"}}>5.0 ★</span> 2 reviews</p>
           <Box position='absolute' top={'10px'} right={'10px'} fontSize='30px'>
           <SlHeart/>
           </Box>  
           <h3>{item.title}</h3>
           <h3>{item.description}</h3>
-          <p>{item.price} <span style={{color:"green",marginLeft:"30px",fontSize:"13px"}}>15% off</span></p>
-          <Button gap={'5px'} color='orange' border={'1px solid orange'} width='88%' padding={'8px'} bgColor='#faefe5' marginBottom={'15px'} marginTop='20px' _hover={{bgColor:"orange", color:"white"}}><FiShoppingCart/> Add to Cart</Button>
+          <p>{item.price} <span style={{textDecoration:'line-through',marginLeft:'20px',color:"grey"}}>₹ 799</span> <span style={{color:"green",marginLeft:"20px",fontSize:"13px"}}>15% off</span></p>          <Button gap={'5px'} color='orange' border={'1px solid orange'} width='88%' padding={'8px'} bgColor='#faefe5' marginBottom={'15px'} marginTop='20px' _hover={{bgColor:"orange", color:"white"}}><FiShoppingCart/> Add to Cart</Button>
         </Box>
       ))}
     </Box>
-    <Button onClick={handleScrollLeft} position={'absolute'} borderRadius='full' bgColor={'#bee7f5'} fontSize='20px' fontWeight={'700'}
-    marginLeft='-43%' marginTop={'-20%'}>{"<"}</Button>
-    <Button onClick={handleScrollRight} position={'absolute'} borderRadius='full' bgColor={'#bee7f5'} fontSize='20px' fontWeight={'700'}
-    marginLeft='39%' marginTop={'-20%'}>{">"}</Button>
+    <Button onClick={handleScrollLeft} display={['none','none','block']} position={'absolute'} borderRadius='50%' bgColor={'#7dd0ec'} fontSize='20px' fontWeight={'700'}
+    marginLeft={'-1%'} marginTop={'-20%'}>{"<"}</Button>
+
+    <Button onClick={handleScrollRight} display={['none','none','block']} position={'absolute'} borderRadius='50%' bgColor={'#7dd0ec'} fontSize='20px' fontWeight={'700'}
+    right={'7%'} marginTop={'-20%'}>{">"}</Button>
     </Box>
   );
 }

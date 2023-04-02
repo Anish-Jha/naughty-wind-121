@@ -2,10 +2,11 @@ import { Box, Button } from '@chakra-ui/react';
 import React from 'react'
 import { useState,useEffect } from 'react';
 import './css/Slider1.css'
+import {TbSquareDot} from 'react-icons/tb'
 import { FiShoppingCart } from 'react-icons/fi';
 import { SlHeart } from 'react-icons/sl';
 
-function Slider3() {
+function Slider5() {
   const items = [
     {
       title: "MuscleBlaze Raw Whey Protein",
@@ -58,42 +59,25 @@ function Slider3() {
     },
   ];
   
-  const [scrollPosition, setScrollPosition] = useState(0);
-
-  const handleScrollLeft=()=>{
-    const container = document.querySelector(".scroll-wrap");
-    setScrollPosition(scrollPosition - container.offsetWidth);
-    container.scrollLeft -= container.offsetWidth;
-  }
-  
-  const handleScrollRight=()=>{
-    const container = document.querySelector(".scroll-wrap");
-    setScrollPosition(scrollPosition + container.offsetWidth);
-    container.scrollLeft += container.offsetWidth;
-  }
-
   return (
     <Box>
     <Box className="scroll-wrap">
       {items.map((item, index) => (
         <Box key={index} border='1px solid rgba(136, 133, 133, 0.781)' borderRadius={'10px'} className="item">
           <img src={item.imageUrl} alt={item.title} />
+          <p style={{fontSize:"13px"}}><span style={{backgroundColor:'#1eaaeb',width:'auto',color:'white',padding:"2px 5px 2px 5px", borderRadius:'3px',marginRight:"10px"}}>5.0 ★</span> 2 reviews</p>
           <Box position='absolute' top={'10px'} right={'10px'} fontSize='30px'>
           <SlHeart/>
           </Box>  
           <h3>{item.title}</h3>
           <h3>{item.description}</h3>
-          <p>{item.price} <span style={{color:"green",marginLeft:"30px",fontSize:"13px"}}>15% off</span></p>
+          <p>{item.price} <span style={{textDecoration:'line-through',marginLeft:'20px',color:"grey"}}>₹ 799</span> <span style={{color:"green",marginLeft:"20px",fontSize:"13px"}}>15% off</span></p>
           <Button gap={'5px'} color='orange' border={'1px solid orange'} width='88%' padding={'8px'} bgColor='#faefe5' marginBottom={'15px'} marginTop='20px' _hover={{bgColor:"orange", color:"white"}}><FiShoppingCart/> Add to Cart</Button>
         </Box>
       ))}
     </Box>
-    <Button onClick={handleScrollLeft} position={'absolute'} borderRadius='full' bgColor={'#bee7f5'} fontSize='20px' fontWeight={'700'}
-    marginLeft='-43%' marginTop={'-20%'}>{"<"}</Button>
-    <Button onClick={handleScrollRight} position={'absolute'} borderRadius='full' bgColor={'#bee7f5'} fontSize='20px' fontWeight={'700'}
-    marginLeft='39%' marginTop={'-20%'}>{">"}</Button>
     </Box>
   );
 }
 
-export default Slider3;
+export default Slider5;

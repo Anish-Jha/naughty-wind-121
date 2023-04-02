@@ -1,16 +1,16 @@
-import './App.css';
-import Home from './Homepage/Home';
-import Navbar from './Navbar/Navbar'
-import SubNav from './Navbar/SubNav'
-import MainRoutes from './Routes/MainRoutes';
+import "./App.css";
+import Footer from "./Homepage/Footer/Footer";
+import Home from "./Homepage/Home";
+import Navbar from "./Navbar/Navbar";
+import SubNav from "./Navbar/SubNav";
 
 function App() {
   return (
     <div className="App">
-    <Navbar/>
-    <SubNav/>
-    <MainRoutes/>
-    <Home/>
+      <Navbar />
+      <SubNav />
+      <Home />
+      <Footer />
     </div>
   );
 }
