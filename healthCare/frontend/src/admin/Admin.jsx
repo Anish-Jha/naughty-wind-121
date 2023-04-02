@@ -1,4 +1,4 @@
-import { Box, Button, Center, Flex, Heading, Hide, Text } from '@chakra-ui/react'
+import { Box, Center, Flex, Heading, Hide, Text } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import { AiFillHome } from "react-icons/ai";
 import { BsClipboardData } from "react-icons/bs";
