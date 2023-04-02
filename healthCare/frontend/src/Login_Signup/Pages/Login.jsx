@@ -26,6 +26,7 @@ const Login = () => {
       .then((res) => {
         console.log(res);
         localStorage.setItem("token", res.token);
+        // alert(res);
         navigate("/");
       })
       .catch((err) => {
@@ -64,7 +65,8 @@ const Login = () => {
               Login
             </button>
             <div className="login_link">
-              Not a member? <Link to="/signup">Sign Up</Link>
+              <br />
+              Not a member? <Link to="/register">Sign Up</Link>
             </div>
           </div>
         </div>
