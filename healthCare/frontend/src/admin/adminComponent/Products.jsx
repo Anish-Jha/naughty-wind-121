@@ -1,6 +1,7 @@
 import { Box, Button, ButtonGroup, Image, Text } from '@chakra-ui/react';
 import React, { useEffect } from 'react'
 import { useState } from 'react'
+import EditButton from './EditButton';
 
 const Products = ({data,pageData}) => {
 
@@ -14,8 +15,9 @@ const Products = ({data,pageData}) => {
                     <Image src={el.image} />
                   <Text>{el.name}</Text>
                   <ButtonGroup>
-                  <Button>Edit</Button>
-                  <Button>Delete</Button>
+                  {/* <Button>Edit</Button>
+                  <Button>Delete</Button> */}
+                  <EditButton />
                   </ButtonGroup>
                   
                 </Box>
