@@ -74,25 +74,25 @@ const ProductFilter = () => {
       
       
       <Box style={{display:"flex", gap:"10px"}}>
-        <Checkbox value="Shoes" onChange={handleChange} checked={category.includes("Shoes")}/>
+        <Checkbox value="" onChange={handleChange} checked={category.includes("")}/>
         <FormLabel color={'#000000'} fontWeight='400' paddingTop='8px'>HealthKart</FormLabel>
       </Box>
       
       
       <Box style={{display:"flex", gap:"10px"}}>
-        <Checkbox value="outwears" onChange={handleChange} checked={category.includes("outwears")}/> 
+        <Checkbox value="" onChange={handleChange} checked={category.includes("")}/> 
         <FormLabel color={'#000000'} fontWeight='400' paddingTop='8px'>MuscleBlaze</FormLabel>
       </Box>
       
       
       <Box style={{display:"flex", gap:"10px"}}>
-        <Checkbox value="Pants" onChange={handleChange} checked={category.includes("Pants")}/>
+        <Checkbox value="" onChange={handleChange} checked={category.includes()}/>
         <FormLabel color={'#000000'} fontWeight='400' paddingTop='8px'>ON</FormLabel>
       </Box>
       
       
       <Box style={{display:"flex", gap:"10px"}}>
-        <Checkbox value="T-Shirt" onChange={handleChange} checked={category.includes("T-Shirt")}/>
+        <Checkbox value="" onChange={handleChange} checked={category.includes("")}/>
         <FormLabel color={'#000000'} fontWeight='400' paddingTop='8px'>My Protien</FormLabel>
       </Box>
 
