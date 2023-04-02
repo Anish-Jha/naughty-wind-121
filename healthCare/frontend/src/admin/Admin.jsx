@@ -48,7 +48,7 @@ const Admin = () => {
   }
 
   const getData = async() =>{
-  const res = await fetch("http://localhost:8080/data");
+  const res = await fetch("https://filthy-bee-dirndl.cyclic.app/");
   const resData = await res.json();
   console.log(resData)
   setData(resData)
