@@ -24,25 +24,43 @@
 
 <h3>HealthCure Homepage Screenshot</h3>
 
+
+<img width="950" alt="Homepage 1" src="https://user-images.githubusercontent.com/96651559/229432940-db9834f5-f51c-4047-bb3e-e087ea824e6f.PNG">
+
 <br />
+
+<img width="951" alt="Homepage 2" src="https://user-images.githubusercontent.com/96651559/229432963-21e751b1-cb38-4943-930f-4ab38c6615f3.PNG">
+
 
 <br />
 <h3>HealthCure Login Signup Screenshot</h3>
 
 <br />
+<img width="940" alt="Login" src="https://user-images.githubusercontent.com/96651559/229433086-a0ec1cdb-41b1-485d-b5d4-e1a5239709d2.PNG">
+
+
+
+<br />
+<img width="940" alt="Login" src="https://user-images.githubusercontent.com/96651559/229433037-f37406d8-7f69-49a7-9de4-c4338295f0f6.PNG">
+
+<br />
+
 <h3>HealthCure Product Page Screenshot</h3>
 
 <br />
+![Product](https://user-images.githubusercontent.com/96651559/229433119-ff4eebd4-cc9b-451e-a972-a502d88ef780.jpeg)
 
 <br />
 
 <br />
 <h3>HealthCure Cart Page Screenshot</h3>
+![Cart](https://user-images.githubusercontent.com/96651559/229433138-9a840e1e-cc52-42be-a38a-aa519d67b11a.jpeg)
 
 <br />
 <h3>HealthCure Payment Checkout Page Screenshot</h3>
 
 <br />
+![Checkout](https://user-images.githubusercontent.com/96651559/229433161-c68d0680-1fba-46d6-9278-0ff730b89e66.jpeg)
 <br />
 
 ## Team Members:
