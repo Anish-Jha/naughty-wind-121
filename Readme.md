@@ -15,7 +15,7 @@
 
 <h3 align="center"><a href="https://subtle-faun-0968ec.netlify.app/"><strong>Want to see live preview »</strong></a></h3>
 
-### 🔗 Live Deployed URL: https://subtle-faun-0968ec.netlify.app/
+### 🔗 Live Deployed URL: https://brilliant-cranachan-982a09.netlify.app/
 
 <br />
 <br />
