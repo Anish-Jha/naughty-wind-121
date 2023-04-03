@@ -64,8 +64,8 @@
 <br />
 <h3>HealthCure Payment Checkout Page Screenshot</h3>
 
-<br />
-![Checkout](https://user-images.githubusercontent.com/96651559/229433161-c68d0680-1fba-46d6-9278-0ff730b89e66.jpeg)
+![Checkout](https://user-images.githubusercontent.com/96651559/229433872-59f85c6e-686c-484a-b89c-9f5f2e10b065.jpeg)
+
 <br />
 
 ## Team Members:
