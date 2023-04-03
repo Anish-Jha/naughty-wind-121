@@ -36,25 +36,28 @@
 <h3>HealthCure Login Signup Screenshot</h3>
 
 <br />
-<img width="940" alt="Login" src="https://user-images.githubusercontent.com/96651559/229433086-a0ec1cdb-41b1-485d-b5d4-e1a5239709d2.PNG">
 
+<img width="936" alt="Signup" src="https://user-images.githubusercontent.com/96651559/229433541-c1cffe0d-caf7-44d5-8685-05b1855fca74.PNG">
 
 
 <br />
-<img width="940" alt="Login" src="https://user-images.githubusercontent.com/96651559/229433037-f37406d8-7f69-49a7-9de4-c4338295f0f6.PNG">
+
+<img width="940" alt="Login" src="https://user-images.githubusercontent.com/96651559/229433570-b0d816da-98b2-4d9e-9be2-4b0274214ecf.PNG">
 
 <br />
 
 <h3>HealthCure Product Page Screenshot</h3>
 
+![Product](https://user-images.githubusercontent.com/96651559/229433624-b8303928-dce0-4a87-af38-7ad50007b953.jpeg)
+
 <br />
-![Product](https://user-images.githubusercontent.com/96651559/229433119-ff4eebd4-cc9b-451e-a972-a502d88ef780.jpeg)
+
 
 <br />
 
 <br />
 <h3>HealthCure Cart Page Screenshot</h3>
-![Cart](https://user-images.githubusercontent.com/96651559/229433138-9a840e1e-cc52-42be-a38a-aa519d67b11a.jpeg)
+
 
 <br />
 <h3>HealthCure Payment Checkout Page Screenshot</h3>
